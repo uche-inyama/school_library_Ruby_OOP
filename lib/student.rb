@@ -2,7 +2,7 @@ class Student < Person
   attr_accessor :classroom
 
   def initialize(name, classroom)
-    super(name)
+    super(name, false)
     @classroom = classroom
   end
 
