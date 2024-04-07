@@ -2,11 +2,12 @@ require_relative './nameable'
 
 
 class Person < Nameable
-  attr_reader :id, :name, :age
+  attr_reader :id, :name, :age, :num
   attr_writer :name, :age
 
-  def initialize(name="Unkown", parent_permission=true)
+  def initialize(num, name="Unkown", parent_permission=true)
     @name = name
+    @num = num
     @parent_permission = parent_permission
   end
 
