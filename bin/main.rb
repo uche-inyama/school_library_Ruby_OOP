@@ -7,7 +7,7 @@ require_relative '../lib/trimmer_decorator'
 student = Student.new("Uchechukwu Inyama", "Grade one Pink")
 teacher = Teacher.new("Mrs Nduka", false, "Physics")
 
-person = Person.new(22, "maximilianus")
+person = Person.new(23, "maximilianus")
 capitalize_person = CapitalizeDecorator.new(person)
 trimmed_person = TrimmerDecorator.new(capitalize_person)
 
