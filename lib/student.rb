@@ -1,8 +1,10 @@
+require_relative './classroom'
+
 class Student < Person
   attr_accessor :classroom
 
   def initialize(name, classroom)
-    super(name, false)
+    super(num, name, true)
     @classroom = classroom
     classroom.students << self
   end

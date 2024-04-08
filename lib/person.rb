@@ -1,13 +1,15 @@
 require_relative './nameable'
+require_relative './book'
 
 class Person < Nameable
-  attr_reader :id, :name, :age, :num
+  attr_reader :id, :name, :age, :num, :rental
   attr_writer :name, :age
 
-  def initialize(num, name="Unkown", parent_permission=true)
+  def initialize(num=22, name="Unkown", parent_permission=true)
     @name = name
     @num = num
     @parent_permission = parent_permission
+    @rental = []
   end
 
   def correct_name
