@@ -5,9 +5,10 @@ class Person < Nameable
   attr_reader :id, :name, :age, :num, :rental
   attr_writer :name, :age
 
-  def initialize(num=22, name="Unkown", parent_permission=true)
+  def initialize(age, name="Unkown", parent_permission=true)
     @name = name
     @num = num
+    @age = age
     @parent_permission = parent_permission
     @rental = []
   end

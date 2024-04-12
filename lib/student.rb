@@ -3,10 +3,14 @@ require_relative './classroom'
 class Student < Person
   attr_accessor :classroom
 
-  def initialize(name, classroom)
-    super(num, name, true)
+  def initialize(name, age, classroom)
+    super(age, name, true)
     @classroom = classroom
-    classroom.students << self
+  end
+
+  def add_classroom
+    @classroom = classroom
+    classroom.students << self unless classroom.students.include?(self)
   end
 
   def play_hooky

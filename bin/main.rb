@@ -1,30 +1,64 @@
-require_relative '../lib/person'
-require_relative '../lib/student'
-require_relative "../lib/teacher"
-require_relative '../lib/capitalize_decorator'
-require_relative '../lib/trimmer_decorator'
-require_relative '../lib/book'
-require_relative '../lib/rental'
+require_relative './app'
 
-classroom = Classroom.new("Grade 1, Pink")
-student = Student.new("Uchechukwu Inyama", classroom)
-p student
-p student.classroom
-# teacher = Teacher.new("Mrs Nduka", false, "Physics")
+class Main_app
+  puts 'Welcome to School Library App!'
+  def self.options
+    puts "\n"
+    puts 'Please choose an option by entering a number'
+    puts "\n"
+    # Menu options
+    @menu = {
+      '1' => 'List all books',
+      '2' => 'List all people',
+      '3' => 'Create a person',
+      '4' => 'Create a book',
+      '5' => 'Create a rental',
+      '6' => "List all rentals for a given person\'s id",
+      '7' => 'Exit'
+    }
 
-person = Person.new(23, "maximilianus")
-book = Book.new("things fallen apart", "AC")
-rental = Rental.new(person, book)
-# p rental
-# p book.rentals
-#  person.rental.map {|r| p r.person}
-capitalize_person = CapitalizeDecorator.new(person)
-trimmed_person = TrimmerDecorator.new(capitalize_person)
+    # Display all menu options
+    @menu.each do |key, menu|
+      puts "#{key} - #{menu}"
+    end
+    # Get user selected option
+    gets.chomp
+  end
+  # Instatiate App class for a given option
+  app = App.new
 
+  loop do
+    case options
+    when '1'
+      app.list_books
+    when '2'
+      app.list_people
+    when '3'
+      app.create_person
+    when '4'
+      app.create_book
+    when '5'
+      app.create_rental
+    when '6'
+      app.list_rentals
+    when '7'
+      app.save_info
+      puts "\n"
+      puts 'Thank you for using this app!'
+      puts "\n"
+      exit
+    else
+      puts "\n"
+      puts 'Invalid option.'
+      puts 'Enter a number between 1 and 7'
+    end
+  end
+end
 
+# Method to call the app
+def main_call
+  Main_app.new
+end
 
-
-
-
-
-
+# call the method to call the app
+main_call
